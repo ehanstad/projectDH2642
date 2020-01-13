@@ -15,6 +15,10 @@ class topScorers extends Component{
 
     componentWillUnmount() { }
 
+    checkFocus(teamName) {
+      return (this.props.focusedTeam.name === teamName) ? "focusedResult" : "unfocusedResult";
+    }
+
     render() {
         let scorers = null;
 
@@ -35,9 +39,9 @@ class topScorers extends Component{
                 </tr>
                 {this.props.scorers.results.map(scorer => (
                     <tr key={scorer.id}>
-                        <td>{scorer.player.name}</td>
-                        <td>{scorer.team.name}</td>
-                        <td>{scorer.numberOfGoals}</td>
+                        <td className={this.checkFocus(scorer.team.name)}>{scorer.player.name}</td>
+                        <td className={this.checkFocus(scorer.team.name)}>{scorer.team.name}</td>
+                        <td className={this.checkFocus(scorer.team.name)}>{scorer.numberOfGoals}</td>
                     </tr>
                 ))}</tbody></table>
                 break;

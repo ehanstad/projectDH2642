@@ -39,7 +39,7 @@ class Sidebar extends Component {
                     if(this.props.api.focusedTeam){
                         focusedTeam = this.props.api.focusedTeam.id
                     }else{
-                        this.props.dispatch(setFocusedTeam(this.props.auth.user.favTeams[0].id, this.props.auth.user.favTeams[0].league))
+                        this.props.dispatch(setFocusedTeam(this.props.auth.user.favTeams[0].id,this.props.auth.user.favTeams[0].name, this.props.auth.user.favTeams[0].league))
                         focusedTeam = this.props.auth.user.favTeams[0].id;
                     }
                     teamList = (
@@ -85,7 +85,7 @@ class Sidebar extends Component {
 
     changeFocusedTeam = e =>{
         const team = JSON.parse(e.target.id);
-        this.props.dispatch(setFocusedTeam(team.id, team.league))
+        this.props.dispatch(setFocusedTeam(team.id, team.name, team.league))
     };
 }
 const mapStateToProps = (state) =>({

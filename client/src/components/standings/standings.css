@@ -4,3 +4,8 @@
 .standings-img{
     height: 20px;
 }
+.focusedResult{
+  color: black;
+}
+.unfocusedResult{
+}

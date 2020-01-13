@@ -18,9 +18,12 @@ class Standings extends Component{
 
     componentWillUnmount() { }
 
+    checkFocus(teamName) {
+      return (this.props.focusedTeam.name === teamName) ? "focusedResult" : "unfocusedResult";
+    }
+
     render() {
         let standings = null;
-
         switch(this.props.standings.isLoading){
             case true:
                 standings = (
@@ -48,17 +51,17 @@ class Standings extends Component{
                     </tr>
                     {this.props.standings.results.table.map(team => (
                         <tr key={team.id}>
-                            <td>{team.position}</td>
-                            <td><Image className={"standings-img"} src={team.team.crestUrl} fallback={noTeam}/></td>
-                            <td>{team.team.name}</td>
-                            <td>{team.playedGames}</td>
-                            <td>{team.won}</td>
-                            <td>{team.draw}</td>
-                            <td>{team.lost}</td>
-                            <td>{team.goalsFor}</td>
-                            <td>{team.goalsAgainst}</td>
-                            <td>{team.goalDifference}</td>
-                            <td>{team.points}</td>
+                            <td className={this.checkFocus(team.team.name)}>{team.position}</td>
+                            <td ><Image className={"standings-img"} src={team.team.crestUrl} fallback={noTeam}/></td>
+                            <td className={this.checkFocus(team.team.name)}>{team.team.name}</td>
+                            <td className={this.checkFocus(team.team.name)}>{team.playedGames}</td>
+                            <td className={this.checkFocus(team.team.name)}>{team.won}</td>
+                            <td className={this.checkFocus(team.team.name)}>{team.draw}</td>
+                            <td className={this.checkFocus(team.team.name)}>{team.lost}</td>
+                            <td className={this.checkFocus(team.team.name)}>{team.goalsFor}</td>
+                            <td className={this.checkFocus(team.team.name)}>{team.goalsAgainst}</td>
+                            <td className={this.checkFocus(team.team.name)}>{team.goalDifference}</td>
+                            <td className={this.checkFocus(team.team.name)}>{team.points}</td>
                         </tr>
                 ))}</tbody></table>
                 </div>;

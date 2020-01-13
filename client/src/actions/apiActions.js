@@ -93,7 +93,8 @@ export const getSchedule = (teamId, league, season='2019') =>{
                 dispatch({
                     type: SCHEDULE_LOADED,
                     payload: response.matches.filter(matches =>
-                        (matches.homeTeam.id == teamId) || (matches.awayTeam.id == teamId))
+                        (matches.homeTeam.id == teamId) || (matches.awayTeam.id == teamId)
+                      )
                 })
             })
             .catch(err => {
@@ -102,7 +103,7 @@ export const getSchedule = (teamId, league, season='2019') =>{
     }
 };
 
-export const setFocusedTeam = (teamId, league) => {
+export const setFocusedTeam = (teamId,teamName, league) => {
     return function(dispatch) {
         dispatch(getSchedule(teamId, league));
         dispatch(getStandings(league));
@@ -111,6 +112,7 @@ export const setFocusedTeam = (teamId, league) => {
             type: FOCUS_CHANGED,
             payload: {
                 id: teamId,
+                name: teamName,
                 league: league
             }
         })
