@@ -9,10 +9,10 @@
 }
 .navBar-text{
   color: white;
-  font-size: 50px; 
-  font-style: none; 
-  font-weight: ; 
-  text-decoration: none; 
+  font-size: 50px;
+  font-style: none;
+  font-weight: ;
+  text-decoration: none;
   font-family: inherit;
 }
 
@@ -21,8 +21,20 @@
 }
 
 .selected {
-  color: white; 
+  color: white;
   font-size: 65px;
-  text-decoration: underline; 
+  text-decoration: underline;
 }
-
+@media screen and (max-width: 750px) {
+  .navBar-container{
+  }
+  .navBar {
+    flex-wrap: wrap;
+    flex: 1;
+    height: auto;
+  }
+  .navBar-text{
+    display: block;
+    width: 100%;
+  }
+}

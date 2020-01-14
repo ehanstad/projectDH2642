@@ -29,7 +29,7 @@ class NavBar extends Component {
     );
 
     return (
-      <div>
+      <div className={"navBar-container"}>
             {isAuthorized? userMenu: guestMenu}
       </div>
     );

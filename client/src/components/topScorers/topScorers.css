@@ -4,3 +4,13 @@
 .focusedResult{
   color: black;
 }
+@media screen and (max-width: 750px) {
+    .TopScorers {
+      text-align: center;
+    }
+    .TopScorers table{
+      display: flex;
+      justify-content: center;
+      text-align: left;
+    }
+}

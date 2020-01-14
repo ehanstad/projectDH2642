@@ -5,3 +5,10 @@
     display: flex;
     flex-direction: row;
 }
+
+@media screen and (max-width: 750px) {
+  .table-body {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
